@@ -9,7 +9,10 @@ The module challenge is the afternoon project or assignment that students work t
 ## Objectives
 
 - Explain function scope
+-Function scope is everything that happens within the {} of the function, and returned variables that may be called upon by other functions within the same parent's lexical scope of reach.
+
 - Describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript  
+- Closure in JavaScript is the combination of a function and the lexical environment within which that function is declared.  Any local variables or return variables that draw from within that scope's data are also included within that's scope's "range of closure" - everything that is "closed within that function's processes"
 
 ## Introduction
 
@@ -64,8 +67,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+- The closure is everything within the {} brackets. The function "personalDice" when given a name, will return the function that processes a constant variable called "newRoll" in which a random number (a float between 0 and .99) will be drawn and multiplied by 6. (such as .39 times 6 will be 2.34 and then rounded down "to the floor" to become the whole number 2. It will then log in the console the phrase "Tim rolled a 2" because the $ {template literals} will replace the parameters of 'name' and 'newRoll' with the information returned from the function's process. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+-Dan's roll of the dice could return a different number because it has the mathmatical method of .random being used. His name however will always bee the same. 
+
 c. What is the lexical scope of `newRoll`? 
+- newRoll's lexical scope will reach within the larger function of putting all of the rolls on a scoreboard if that were to be built in. If we were to have Dan and Zoe roll 10 times each and track all of the data in the array, the results of newRoll would be in the array. if that array were to be used to find their average, you could say that the data of newRoll has a lexical scope of reaching into the function that creates the averageRoll function, since it draws data from within the closure of the newRoll function. 
 
 
 ### Task 3 - Stretch Goals

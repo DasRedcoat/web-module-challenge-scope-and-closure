@@ -1,7 +1,7 @@
 // ⭐️ Example Challenge START ⭐️
 
 /**Example Task : processFirstItem()
- * This example shows how you might go about solving the rest of the tasks.
+ * This example shows how you might go about solving the rest of the tasks. 
  * 
  * Use the higher order function processFirstItem below to do the following:
  *  1. Receive an array of strings in a parameter
@@ -9,7 +9,7 @@
  *  3. Return the result of invoking the callback function and passing in the FIRST 
  *     element in the array as the argument
  * 
- * The following code is demonstrating a way of completing this task
+ * The following code is demonstrating a way of completing this task.
  * It returns the string `foofoo`
 */
 
