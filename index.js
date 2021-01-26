@@ -1,7 +1,7 @@
 // ⭐️ Example Challenge START ⭐️
 
 /**Example Task : processFirstItem()
- * This example shows how you might go about solving the rest of the tasks
+ * This example shows how you might go about solving the rest of the tasks.
  * 
  * Use the higher order function processFirstItem below to do the following:
  *  1. Receive an array of strings in a parameter
