@@ -28,11 +28,17 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  - counter1 does not have the variable of 'count' set inside the closure of the return function's scope.
+  - counter2 has the variable of 'count' set outside the function, and the function does not actually compute for it to change. 
+    The '++' means to add the variable plus the result of the variable after a function, but there is no function or for-loop to change it and the result will always be 0.
   
   2. Which of the two uses a closure? How can you tell?
+  - counter2 reaches outside it's closure to find the vallue of 'count' that is 0. Since count is not defined within the scope of the function, it has to reach outside of the functions scope to find it. 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     - counter1 would be preferred in the case of wanting the score to add up over time. Say in an active game or where there is a function that is going to change the value of count after a function has run. This would be done using a forloop 
+     - counter2 would be preferred if the count was to be referenced in global scope, such as if there was other functions working, and their OVERALL count wanted to be tracked, it would be added to the count because it is outside the scope of the function that is adding to it. It's not being added to and computed within the function. As if you wanted to track a website's overall clicks, and the clicks on certain pages only. The pages would have a counter of their own, and the the entire website's overall clicks would be added up to the total on the global counter. 
 */
 
 // counter1 code
@@ -42,8 +48,9 @@ function counterMaker() {
    return count++;
   }
 }
-
 const counter1 = counterMaker();
+
+
 
 // counter2 code
 let count = 0;
@@ -62,9 +69,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random() * 3);
 }
+console.log(inning)
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -81,8 +89,17 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningScore, inning){
+  let homeTotal = 0;
+  let awayTotal = 0;
+  for (let i = 0, i < 9; i++) {
+    homeTotal += inningScore();
+    awaytotal += inningScore();
+  }
+  return {
+    Away: awayTotal;
+    Home: homeTotal;
+  }
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
