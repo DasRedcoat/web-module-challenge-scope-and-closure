@@ -69,10 +69,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(){
-    return Math.floor(Math.random() * 3);
+function inningScoreCB(){
+    return Math.floor(Math.random() * 3); // random float, times 3, rounded down
 }
-console.log(inning)
+console.log(inningScoreCB)
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -89,18 +89,19 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(inningScore, inning){
+function finalScore(inningScoreCB, Num){
   let homeTotal = 0;
   let awayTotal = 0;
-  for (let i = 0, i < 9; i++) {
-    homeTotal += inningScore();
-    awaytotal += inningScore();
+  for (let i = 0, i < Num; i++) {
+    homeTotal += inningScoreCB();
+    awaytotal += inningScoreCB();
   }
   return {
     Away: awayTotal;
     Home: homeTotal;
   }
 }
+console.log(homeTotal, awayTotal)
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -152,11 +153,24 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ]  
   */
-
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function TotalScores() {
+  return {
+    Home: scoreCB();
+    Away: scoreCB();
+  };
 }
+function scoreboard(scoreCB, inningCB, num) {
+  const totalGame = [];
+  let homeScore = 0;
+  let awayScore = 0;
 
+  for (let i = 0, i < 9, i++,)
+  let away = inningCB();
+  let home = inningCB();
+  homeScore = homeScore + home;
+  awayScore = awayScore + away;
+}
+console.log(scoreboard)
 
 
 
