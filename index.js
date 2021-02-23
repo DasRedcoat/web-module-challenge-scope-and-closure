@@ -28,11 +28,15 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+    -Counter 2 declares the variable "count" in the global scope, so all results will be accessible in the global scope for another function to call on it if needed. Counter 1 has the varaible called inside the scope, so the counter will add up, but stay within the counterMaker function, and only be accessible INSIDE that function's scope, and it cannot be used by any other functions because it is not in the global scope. 
   
   2. Which of the two uses a closure? How can you tell?
+    - Counter 1 has 2 closures, one for the main function of counterMaker, and another for function counter within the counterMaker function. The second formula only has one scope, returning the count++ - you can tell by the {curley brackets}
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     - Counter 1 would be preferrable in a situation where you would want the count to remain INSIDE the function of "counterMaker" so that "counterMaker" can be used as a perameter in a future function. 
+     - Counter 2 would be used, if the function is being used to creat a count that would be accessed globally, so that another function, seperate from the counterMaker function, could use the resulting count as it's own perameter, since it could be accessed globally. 
 */
 
 // counter1 code
@@ -62,9 +66,24 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning() {
+  return (Math.floor(Math.random()) * 3) 
 }
+
+// random float, times 3, and then rounded down. This will create a 2 digit decimal, multiplied by 3, then rounded down to the nearest whole. The highest possibility is .99 compounding to 2.97 which will round down to a whole number of 2. The lowest it can possible go is .01, which will round down to 0. Thus covering all possibilities of 0, 1, and 2 as a result. 
+
+
+// function inning(score) {
+//   let score = Math.random();
+//    if (score >= .33) {
+//       return 0;
+//    } else if (score < .33 && score > .66) {
+//       return 1;
+//    } else if (score < .66 && score > 1) {
+//       return 2
+//    }
+// }
+// console.log(inning)
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -81,16 +100,35 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+ // inning IS THE CallBack (cB)
+ // first find the result of the inning
+ // then add the result of the inning to the score
+
+function finalScore(inning, inningsPlayed) { //pass in the 2 parameters
+  let Home = 0; // declare Home as a variable and make it start at 0
+  let Away = 0; // declare Away as a variable and make it start at 0
+  for ( let i = 0; i < inningsPlayed; i++) { // loop through the inningsPlayed (because the amount played is given as a parameter)
+    Home += inning(); // Take the value of Home, which is 0, and add the score from the inning
+    Away += inning(); // Take the value of Away, which is 0, and add the score from the inning
+  }
+  return {   // OUTSIDE OF THE finalScore function's scope, return the result
+    Home: Home, // return Home AND (use a comma for multiple return statements to list them)
+    Away: Away // return Away
+  }
 }
+console.log(finalScore(inning, 9))
+
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
+
+  // DONT FORGET..... "inning" IS the CallBack!!!!!!!!!!!
+  
+function getInningScore(inning) {
   /*Your Code Here */
 }
 
