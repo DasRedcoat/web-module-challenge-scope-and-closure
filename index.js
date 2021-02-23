@@ -16,7 +16,7 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+// console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -104,19 +104,20 @@ Use the finalScore function below to do the following:
  // first find the result of the inning
  // then add the result of the inning to the score
 
+
 function finalScore(inning, inningsPlayed) { //pass in the 2 parameters
-  let Home = 0; // declare Home as a variable and make it start at 0
-  let Away = 0; // declare Away as a variable and make it start at 0
+  let inningHome = 0; // declare Home as a variable and make it start at 0
+  let inningAway = 0; // declare Away as a variable and make it start at 0
   for ( let i = 0; i < inningsPlayed; i++) { // loop through the inningsPlayed (because the amount played is given as a parameter)
-    Home += inning(); // Take the value of Home, which is 0, and add the score from the inning
-    Away += inning(); // Take the value of Away, which is 0, and add the score from the inning
+    inningHome += inning(); // Take the value of inningHome, which is 0, and add the score from the last inning-loop and return the result
+    inningAway += inning(); // Take the value of inningAway, which is 0, and add the score from the last inning-loop and return the result
   }
   return {   // OUTSIDE OF THE finalScore function's scope, return the result
-    Home: Home, // return Home AND (use a comma for multiple return statements to list them)
-    Away: Away // return Away
+  "Home": inningHome, // return Home AND (use a comma for multiple return statements to list them)
+  "Away": inningAway // return Away
   }
 }
-console.log(finalScore(inning, 9))
+// console.log(finalScore(inning, 9))
 
 
 
@@ -126,12 +127,13 @@ Use the getInningScore() function below to do the following:
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
 
-  // DONT FORGET..... "inning" IS the CallBack!!!!!!!!!!!
-  
-function getInningScore(inning) {
-  /*Your Code Here */
-}
 
+function getInningScore(inning) {
+  return {
+    Home: inning(), Away: inning(),
+  }
+}
+// console.log(getInningScore(9))
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -174,9 +176,34 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+
+// getInningScore needs the (inning)
+// inning generates the random number score
+// num is the parameter for how man innings there is to play (how many times we want it to run)
+
+function totalScores() {  // write a function that will hold the total scores as an object
+    return {
+      Home: inning(),
+      Away: inning()
+  };
 }
+
+function scoreboard(getInningScore, inning, num) {
+  let gameTotal = [];
+  let homeScore = 0;
+  let awayScore = 0;
+
+  for (let i = 0; i < num; i++) {
+    console.log(gameTotal.push("Inning + `${i}` + `${getInningScore}`"))
+  }
+  return (gameTotal)
+}
+console.log(scoreboard())
+
+// CodeGrader is saying that my function passes, but it isn't printing the message in the console log. So I'm not sure what I'm doing wrong. 
+
+
+
 
 
 
